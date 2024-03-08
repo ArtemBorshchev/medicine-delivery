@@ -4,13 +4,19 @@ import { Link } from 'react-router-dom';
 import "../styles/header.css";
 
 const Header = () => {
+
+
   return (
-    <header className='header'>
-      <div className='header-title-box'>
-        <h3><Link to="/">Shops</Link></h3>
+    <header className="header">
+      <div className="header-title-box">
+        <h3>
+          <Link to="/">Shops</Link>
+        </h3>
       </div> 
-      <div className='header-title-box'>
-        <h3><Link to="/cart">Shoping Cart</Link></h3>
+      <div className="header-title-box">
+        <h3>
+          <Link to="/cart">Cart</Link>
+        </h3>
       </div>
     </header>
   );

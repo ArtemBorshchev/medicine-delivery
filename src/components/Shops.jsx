@@ -9,13 +9,9 @@ const Shops = () => {
     const [shop, setShop] = useState([]);
     const [selectedGoods, setSelectedGoods] = useState([]);
 
-    // Реализация загрузки списка магазинов и выбора лекарств
-
     return (
       <div className="shops-container">
         <div className="left-block">
-          Shops list
-            {/* Список магазинов */}
         </div>
         <div className="right-block">
           {
@@ -26,23 +22,15 @@ const Shops = () => {
                 dataAdded={'10.01.2024'}
                 name={`NAME ${index + 1}`}
                 image={medicineIcon}
-                price={100}  // пример цены
-                available={true} // или false в зависимости от наличия
-                onAddToCart={() => console.log('Товар добавлен в корзину')} // пример обработчика события
+                price={100}
+                available={true}
+                onAddToCart={() => console.log('Товар добавлен в корзину')}
               />
               )
             })
           }
-        <ProductCard 
-          name="NAME"
-          image={medicineIcon}
-          price={100}  // пример цены
-          available={true} // или false в зависимости от наличия
-          onAddToCart={() => console.log('Товар добавлен в корзину')} // пример обработчика события
-        />
-            {/* Товары магазина */}
         </div>
-  </div>
+      </div>
     );
 };
 
