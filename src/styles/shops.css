@@ -1,0 +1,17 @@
+.shops-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-block {
+  width: 25%;
+  /* Дополнительные стили по желанию */
+}
+
+.right-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 75%;
+  /* Дополнительные стили по желанию */
+}
