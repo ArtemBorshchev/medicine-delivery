@@ -22,6 +22,8 @@ const Shops = () => {
             arr.map((el, index) => {
               return (
                 <ProductCard 
+                key={index}
+                dataAdded={'10.01.2024'}
                 name={`NAME ${index + 1}`}
                 image={medicineIcon}
                 price={100}  // пример цены
