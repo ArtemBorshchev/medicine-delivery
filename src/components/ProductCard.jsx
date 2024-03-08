@@ -15,7 +15,7 @@ const ProductCard = ({ name, image, price, available, onAddToCart, dataAdded }) 
                 <div className="product-name">{name}</div>
                 <div className="product-price">{price} UAH</div>
             </div>
-            <button className="add-to-cart-button" onClick={onAddToCart}>Добавить в корзину</button>
+            <button className="add-to-cart-button" onClick={onAddToCart}>Add to Cart</button>
             <div>
                 <div className="data-added">{available? `added ${dataAdded}` : ``}</div>
 

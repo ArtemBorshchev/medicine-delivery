@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import "../styles/header.css";
 
 const Header = () => {
   return (
-    <header>
-      <h4><Link to="/">Shops</Link></h4>
-      <h4><Link to="/cart">Shoping Cart</Link></h4>
+    <header className='header'>
+      <div className='header-title-box'>
+        <h3><Link to="/">Shops</Link></h3>
+      </div> 
+      <div className='header-title-box'>
+        <h3><Link to="/cart">Shoping Cart</Link></h3>
+      </div>
     </header>
   );
 };
@@ -15,7 +20,7 @@ export default Header;
 
 // async function fetchFDAProducts() {
 //   try {
-//       const response = await fetch('https://api.fda.gov/drug/drugsfda.json?search=Products.marketing_status="Active"&limit=5');
+//       const response = await fetch('https://api.fda.gov/drug/drugsfda.json?search=Products.marketing_status="Discontinued"&limit=10');
 //       if (!response.ok) {
 //           throw new Error('Ошибка запроса к API FDA');
 //       }
