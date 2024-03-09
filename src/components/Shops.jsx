@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, useParams } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import medicineIcon from "../medicine_product_item.png";
+
+import EachShop from './EachShop';
 
 import "../styles/shops.css";
 
 const Shops = ({medicineData}) => {
-  console.log("DATA", medicineData)
+  // console.log("DATA", medicineData)
     const [shop, setShop] = useState("shop");
     const [selectedGoods, setSelectedGoods] = useState([]);
-    console.log("SHOP", shop)
 
     return (
       <div className="shops-container">
         <div className="left-block">
-          {
+          {/* {
             medicineData.map((el, index) => {
               return(
                 <div className='shop-item' key={el.id}>
@@ -24,7 +25,18 @@ const Shops = ({medicineData}) => {
                 </div>
                 )
               })
-            }
+            } */}
+
+          {
+            medicineData.map((el, index) => {
+              // console.log(el)
+              return (
+                <EachShop name={el.name} key={el.id} onClick={() => setShop(el.name)}/>
+              )
+              }
+            )
+          }
+          
         </div>
         <div className="right-block">
 
@@ -47,6 +59,7 @@ const Shops = ({medicineData}) => {
         </div>
       </div>
     );
+    
 };
 
 export default Shops;

@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Аптека 1",
+    "name": "apteka1",
     "medications": [
       {
         "id": 1,
