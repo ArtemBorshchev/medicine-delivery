@@ -1,33 +1,48 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import medicineIcon from "../medicine_product_item.png";
 
 import "../styles/shops.css";
 
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-const Shops = () => {
-    const [shop, setShop] = useState([]);
+const Shops = ({medicineData}) => {
+  console.log("DATA", medicineData)
+    const [shop, setShop] = useState("shop");
     const [selectedGoods, setSelectedGoods] = useState([]);
+    console.log("SHOP", shop)
 
     return (
       <div className="shops-container">
         <div className="left-block">
+          {
+            medicineData.map((el, index) => {
+              return(
+                <div className='shop-item' key={el.id}>
+                  <h3 onClick={() => setShop(el.name)}>
+                    <Link>{el.name}</Link>
+                  </h3>
+                </div>
+                )
+              })
+            }
         </div>
         <div className="right-block">
-          {
-            arr.map((el, index) => {
+
+          { 
+            medicineData.filter((el) => el.name === shop)
+            .map((element) => element.medications.map((medication, index) => {
               return (
                 <ProductCard 
-                key={index}
-                dataAdded={'10.01.2024'}
-                name={`NAME ${index + 1}`}
+                key={medication.id}
+                dataAdded={medication.added}
+                name={medication.name}
                 image={medicineIcon}
-                price={100}
+                price={medication.price}
                 available={true}
                 onAddToCart={() => console.log('Товар добавлен в корзину')}
               />
               )
-            })
+            }))
           }
         </div>
       </div>
