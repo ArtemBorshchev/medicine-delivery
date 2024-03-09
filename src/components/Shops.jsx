@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import medicineIcon from "../medicine_product_item.png";
+
 import "../styles/shops.css";
 
 const Shops = ({medicineData}) => {
-  // console.log("DATA", medicineData)
-  const [shop, setShop] = useState("shop");
-  const [selectedGoods, setSelectedGoods] = useState([]);
 
+  const [cart, setCart] = useState([]);
+  console.log(cart)
+  const [shop, setShop] = useState("shop");
+  
   return (
     <div className="shops-container">
       <div className="left-block">
@@ -26,23 +28,21 @@ const Shops = ({medicineData}) => {
         
       </div>
       <div className="right-block">
-
-        { 
-          medicineData.filter((el) => el.name === shop)
-          .map((element) => element.medications.map((medication, index) => {
-            return (
-              <ProductCard 
-                key={medication.id}
-                dataAdded={medication.added}
-                name={medication.name}
-                image={medicineIcon}
-                price={medication.price}
-                available={true}
-                onAddToCart={() => console.log('Товар добавлен в корзину')}
-              />
-            )
-          }))
-        }
+      {
+      medicineData.filter((elName) => elName.name === shop).map((oneShop) => 
+        oneShop.medications.map((products) => (
+          <ProductCard 
+            key={products.id}
+            dataAdded={products.added}
+            name={products.name}
+            image={medicineIcon}
+            price={products.price}
+            available={true}
+            setCart={setCart}
+          />
+        ))
+      )
+    }
       </div>
     </div>
   );
