@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "apteka1",
+    "name": "Pharmacy 1",
     "medications": [
       {
         "id": 1,
@@ -127,7 +127,7 @@
   },
   {
     "id": 2,
-    "name": "Аптека 2",
+    "name": "Pharmacy 2",
     "medications": [
       {
         "id": 21,
@@ -253,7 +253,7 @@
   },
   {
     "id": 3,
-    "name": "Аптека 3",
+    "name": "Pharmacy 3",
     "medications": [
       {
         "id": 41,
@@ -379,7 +379,7 @@
   },
   {
     "id": 4,
-    "name": "Аптека 4",
+    "name": "Pharmacy 4",
     "medications": [
       {
         "id": 61,
@@ -505,7 +505,7 @@
   },
   {
     "id": 5,
-    "name": "Аптека 5",
+    "name": "Pharmacy 5",
     "medications": [
       {
         "id": 81,
@@ -631,7 +631,7 @@
   },
   {
     "id": 6,
-    "name": "Аптека 6",
+    "name": "Pharmacy 6",
     "medications": [
       {
         "id": 101,
@@ -757,7 +757,7 @@
   },
   {
     "id": 7,
-    "name": "Аптека 7",
+    "name": "Pharmacy 7",
     "medications": [
       {
         "id": 121,
@@ -883,7 +883,7 @@
   },
   {
     "id": 8,
-    "name": "Аптека 8",
+    "name": "Pharmacy 8",
     "medications": [
       {
         "id": 141,
@@ -1009,7 +1009,7 @@
   },
   {
     "id": 9,
-    "name": "Аптека 9",
+    "name": "Pharmacy 9",
     "medications": [
       {
         "id": 161,
@@ -1135,7 +1135,7 @@
   },
   {
     "id": 10,
-    "name": "Аптека 10",
+    "name": "Pharmacy 10",
     "medications": [
       {
         "id": 181,

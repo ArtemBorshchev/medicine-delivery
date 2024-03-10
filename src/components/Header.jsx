@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import "../styles/header.css";
 
 const Header = () => {
-
+  const [underLine, setUnderline] = useState("");
+  const clickedTextDecor = (element) => {
+    setUnderline(element);
+  };
 
   return (
     <header className="header">
       <div className="header-title-box">
-        <h3>
+      <h3 onClick={() => clickedTextDecor("Shops")}
+          style={{ textDecoration: underLine === "Shops" ? 'underline solid #29a745' : 'none' }}>
           <Link to="/shop">Shops</Link>
         </h3>
       </div> 
       <div className="header-title-box">
-        <h3>
+        <h3 onClick={() => clickedTextDecor("Cart")}
+            style={{ textDecoration: underLine === "Cart" ? 'underline solid #29a745' : 'none' }}>
           <Link to="/cart">Cart</Link>
         </h3>
       </div>

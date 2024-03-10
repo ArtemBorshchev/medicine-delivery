@@ -43,13 +43,6 @@ const Cart = ({ items }) => {
           </form>
         </div>
         <div className="cart-items-right">
-          {/* <ul>
-            {items.map((item, index) => (
-              <li key={index}>
-                {item.name} - ${item.price}
-              </li>
-            ))}
-          </ul> */}
         </div>
       </div>
       <div className="button-container">

@@ -6,11 +6,19 @@ import Cart from "./components/Cart";
 import ProductCard from "./components/ProductCard";
 
 function App() {
+  const [cart, setCart] = useState([]);
+  const [shop, setShop] = useState("shop");
   const [medicineData, setMedicineData] = useState([]);
 	const [isNavigated, setIsNavigated] = useState(false);
 	const navigate = useNavigate();
+
+  const clickedTextDecor = (elemeentName) => {
+		setShop(elemeentName);
+  };
+
   useEffect(() => {
 		if (!isNavigated) {
+      console.log(isNavigated)
 			navigate('/shop');
 			setIsNavigated(true);
 		}
@@ -30,9 +38,23 @@ function App() {
 
   return (
 		<div>
-		<Header />
+		<Header 
+      setIsNavigated={setIsNavigated} 
+      isNavigated={isNavigated}
+    />
 		<Routes>
-				<Route path="/shop" element={<Shops medicineData={medicineData}/>} >
+				<Route  path="/shop/*" 
+                element={
+                  <Shops 
+                    medicineData={medicineData}
+                    shop={shop}
+                    setShop={setShop}
+                    cart={cart}
+                    setCart={setCart}
+                    clickedTextDecor={clickedTextDecor}
+                    />
+                } 
+        >
 					{
 						medicineData.map((el, index) => {
 							return(

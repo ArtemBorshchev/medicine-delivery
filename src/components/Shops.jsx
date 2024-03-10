@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import medicineIcon from "../medicine_product_item.png";
 
 import "../styles/shops.css";
 
-const Shops = ({medicineData}) => {
-
-  const [cart, setCart] = useState([]);
-  console.log(cart)
-  const [shop, setShop] = useState("shop");
+const Shops = ({medicineData, shop, setShop, cart, setCart, clickedTextDecor}) => {
   
   return (
     <div className="shops-container">
@@ -18,7 +14,8 @@ const Shops = ({medicineData}) => {
           medicineData.map((el, index) => {
             return(
               <div className='shop-item' key={el.id}>
-                <h3 onClick={() => setShop(el.name)}>
+                 <h3 onClick={() => clickedTextDecor(el.name)}
+                    style={{ textDecoration: shop === el.name ? 'underline solid #29a745' : 'none' }}>
                   <Link to={el.name}>{el.name}</Link>
                 </h3>
               </div>
