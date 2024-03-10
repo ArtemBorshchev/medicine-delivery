@@ -3,9 +3,7 @@ import {decorateClickedElement, decorateFocusedLeavedElement} from "../usefullFu
 
 import {ReactComponent as HeartIcon} from "../iconFavorit.svg"
 
-const FavoriteIcon = () => {
-  const [opacitiColor, setOpacitiColor] = useState('0.2');
-  const [clickedIcon, setClickedIcon] = useState(false);
+const FavoriteIcon = ({opacitiColor, setOpacitiColor, clickedIcon, setClickedIcon}) => {
 
   return (
     <HeartIcon className="heart" fill="#29a745" opacity={opacitiColor} width="25px" height="25px"

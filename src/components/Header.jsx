@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHref } from 'react-router-dom';
 
 import "../styles/header.css";
 
 const Header = () => {
-  const [underLine, setUnderline] = useState("");
+  const currentURL = useHref().substring(1);
+  const [underLine, setUnderline] = useState("Shops");
   const clickedTextDecor = (element) => {
     setUnderline(element);
   };
@@ -12,10 +13,18 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-title-box">
-      <h3 onClick={() => clickedTextDecor("Shops")}
-          style={{ textDecoration: underLine === "Shops" ? 'underline solid #29a745' : 'none' }}>
-          <Link to="/shop">Shops</Link>
-        </h3>
+        {
+          underLine === "Shops" ?
+          <h3 onClick={() => clickedTextDecor("Shops")}
+              style={{ textDecoration: underLine === "Shops" ? 'underline solid #29a745' : 'none' }}>
+              <Link to={currentURL} >Shops</Link>
+          </h3>
+          :
+          <h3 onClick={() => clickedTextDecor("Shops")}
+              style={{ textDecoration: underLine === "Shops" ? 'underline solid #29a745' : 'none' }}>
+          <Link to="/shop/*">Shops</Link>
+          </h3>
+        }
       </div> 
       <div className="header-title-box">
         <h3 onClick={() => clickedTextDecor("Cart")}

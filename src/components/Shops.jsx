@@ -5,8 +5,8 @@ import medicineIcon from "../medicine_product_item.png";
 
 import "../styles/shops.css";
 
-const Shops = ({medicineData, shop, setShop, cart, setCart, clickedTextDecor}) => {
-  
+const Shops = ({medicineData, shop, cart, setCart, clickedTextDecor}) => {
+
   return (
     <div className="shops-container">
       <div className="left-block">
@@ -30,12 +30,14 @@ const Shops = ({medicineData, shop, setShop, cart, setCart, clickedTextDecor}) =
         oneShop.medications.map((products) => (
           <ProductCard 
             key={products.id}
+            id={products.id}
             dataAdded={products.added}
             name={products.name}
             image={medicineIcon}
             price={products.price}
             available={true}
             setCart={setCart}
+            cart={cart}
           />
         ))
       )
