@@ -35,9 +35,9 @@ function App() {
     };
     fetchData();
   }, [isNavigated, navigate]);
-
+  
   return (
-		<div>
+    <div>
 		<Header 
       setIsNavigated={setIsNavigated} 
       isNavigated={isNavigated}
@@ -63,7 +63,10 @@ function App() {
 						})
 					}
 				</Route>
-				<Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart 
+            cart={cart} 
+            setCart={setCart}
+            removeFromCart={(elementID) => setCart(cart.filter(el => el.id !== elementID))} />} />
 		</Routes>
 </div>
   );

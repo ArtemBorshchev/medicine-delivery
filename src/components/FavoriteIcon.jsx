@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {decorateClickedElement, decorateFocusedLeavedElement} from "../usefullFunc/usefullFunc.js"
 
 import {ReactComponent as HeartIcon} from "../iconFavorit.svg"

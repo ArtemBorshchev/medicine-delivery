@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import ProductCard from './ProductCard';
 import "../styles/cart.css";
 
-const Cart = ({ items }) => {
+const Cart = ({ cart, setCart }) => {
+
   const [shippingInfo, setShippingInfo] = useState({
     name: '',
     email: '',
@@ -43,6 +45,19 @@ const Cart = ({ items }) => {
           </form>
         </div>
         <div className="cart-items-right">
+          {cart.map(product => (
+            <ProductCard
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            image={product.image}
+            price={product.price}
+            available={product.available}
+            dataAdded={product.addedToCart}
+            cart={cart}
+            setCart={setCart}
+          />
+          ))}
         </div>
       </div>
       <div className="button-container">
