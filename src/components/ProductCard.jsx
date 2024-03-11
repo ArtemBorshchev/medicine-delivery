@@ -10,7 +10,8 @@ const ProductCard = ({ id, name, image, price, available, cart, setCart, dataAdd
   useEffect(() => {
     const foundInCart = cart.some(item => item.id === id);
     setIsInCart(foundInCart);
-  }, [cart, id]);
+    console.log("cart from USE EFF ProdCart: ", cart)
+  }, []);
 
   const addToCart = () => {
     const newProduct = {
@@ -21,17 +22,25 @@ const ProductCard = ({ id, name, image, price, available, cart, setCart, dataAdd
       available: true,
       addedToCart: new Date(),
     };
-    setCart([...cart, newProduct]);
+    setCart(prevCart => {
+      const updatedCart = [...prevCart, newProduct];
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      return updatedCart;
+    });
+    console.log("cart: ", cart)
     setIsInCart(true);
     setOpacitiColor('1');
-    console.log("cart: ", cart)
   };
-
+  
   const deleteFromCart = () => {
     const updatedCart = cart.filter(item => item.id !== id);
+    console.log("DELET FUNK updatedCart: ", updatedCart);
     setCart(updatedCart);
+    console.log("DELET FUNK cart after apdate: ", cart)
+
     setIsInCart(false);
     setOpacitiColor('0.2');
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
   return (

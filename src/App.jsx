@@ -34,6 +34,13 @@ function App() {
       }
     };
     fetchData();
+    if (cart.length === 0) {
+      console.log("не карт", cart )
+      const savedData = localStorage.getItem('cart');
+      setCart(JSON.parse(savedData));
+      console.log("app use effect: ", cart);
+
+    }
   }, [isNavigated, navigate]);
   
   return (

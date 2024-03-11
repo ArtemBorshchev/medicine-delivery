@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 import "../styles/cart.css";
 
 const Cart = ({ cart, setCart }) => {
-
+  
   const [shippingInfo, setShippingInfo] = useState({
     name: '',
     email: '',
