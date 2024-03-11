@@ -1,0 +1,56 @@
+.history-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.history-search-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-group {
+  margin: 30px 0px 0px 0px;
+}
+
+.search-group label {
+  display: block;
+  font-size: 16px;
+  color: #333;
+}
+
+.search-group input[type="text"],
+.search-group input[type="email"] {
+  width: 400px;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.hystory-items-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /* border: 3px rgba(41, 167, 68, 0.3) solid; */
+  /* border-radius: 10px; */
+  margin: 0px 20px 20px 0px;
+  width: 75%;
+  overflow-y: auto;
+}
+
+.history-product-card {
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-bottom: 20px;
+  width: calc(20% - 20px);
+  margin: 10px;
+  box-sizing: border-box;
+}

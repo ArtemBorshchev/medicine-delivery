@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import FavoriteIcon from './FavoriteIcon';
 import "../styles/product-card.css";
 
-const ProductCard = ({ id, name, image, price, available, cart, setCart, dataAdded }) => {
+const ProductCard = ({ id, name, image, price, available, cart, setCart, dataAdded, liked, setLiked }) => {
   const [isInCart, setIsInCart] = useState(false);
+  const [isLiked, setIsLiked] = useState(true);
   const [opacitiColor, setOpacitiColor] = useState('0.2');
   const [clickedIcon, setClickedIcon] = useState(false);
 
   useEffect(() => {
-    const foundInCart = cart.some(item => item.id === id);
+    const foundInCart = cart?.some(item => item.id === id);
     setIsInCart(foundInCart);
     console.log("cart from USE EFF ProdCart: ", cart)
   }, []);
@@ -22,15 +23,21 @@ const ProductCard = ({ id, name, image, price, available, cart, setCart, dataAdd
       available: true,
       addedToCart: new Date(),
     };
+  
     setCart(prevCart => {
+      if (!Array.isArray(prevCart)) {
+        return [newProduct];
+      }
+    
       const updatedCart = [...prevCart, newProduct];
       localStorage.setItem('cart', JSON.stringify(updatedCart));
       return updatedCart;
     });
-    console.log("cart: ", cart)
+  
     setIsInCart(true);
     setOpacitiColor('1');
   };
+  
   
   const deleteFromCart = () => {
     const updatedCart = cart.filter(item => item.id !== id);
@@ -50,12 +57,22 @@ const ProductCard = ({ id, name, image, price, available, cart, setCart, dataAdd
           {available ? 'in stock' : 'will be soon...'}
         </div>
         <div className="favorite-icon">
-          <FavoriteIcon 
+          <FavoriteIcon
+            id={id}
+            name={name}
+            image={image}
+            price={price}
+            added={dataAdded}
             isInCart={isInCart} 
             opacitiColor={opacitiColor}
             setOpacitiColor={setOpacitiColor}
             clickedIcon={clickedIcon}
-            setClickedIcon={setClickedIcon}/>
+            setClickedIcon={setClickedIcon}
+            liked={liked}
+            setLiked={setLiked}
+            isLiked={isLiked}
+            setIsLiked={setIsLiked}
+            />
         </div>
       </div>
       <img src={image} alt={name} className="product-image" />

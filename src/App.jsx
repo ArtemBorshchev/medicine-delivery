@@ -4,10 +4,12 @@ import Header from "./components/Header";
 import Shops from "./components/Shops";
 import Cart from "./components/Cart";
 import ProductCard from "./components/ProductCard";
+import History from "./components/History";
 
 function App() {
   const [cart, setCart] = useState([]);
   const [shop, setShop] = useState("shop");
+  const [liked, setLiked] = useState([]);
   const [medicineData, setMedicineData] = useState([]);
 	const [isNavigated, setIsNavigated] = useState(false);
 	const navigate = useNavigate();
@@ -34,12 +36,12 @@ function App() {
       }
     };
     fetchData();
-    if (cart.length === 0) {
+    if (cart && cart.length === 0) {
       console.log("не карт", cart )
-      const savedData = localStorage.getItem('cart');
-      setCart(JSON.parse(savedData));
-      console.log("app use effect: ", cart);
-
+      const savedDataCart = localStorage.getItem('cart');
+      setCart(JSON.parse(savedDataCart));
+      const savedDataFavorit = localStorage.getItem('liked');
+      setLiked(JSON.parse(savedDataFavorit));
     }
   }, [isNavigated, navigate]);
   
@@ -59,7 +61,9 @@ function App() {
                     cart={cart}
                     setCart={setCart}
                     clickedTextDecor={clickedTextDecor}
-                    />
+                    liked={liked} 
+                    setLiked={setLiked}
+                  />
                 } 
         >
 					{
@@ -73,7 +77,11 @@ function App() {
         <Route path="/cart" element={<Cart 
             cart={cart} 
             setCart={setCart}
-            removeFromCart={(elementID) => setCart(cart.filter(el => el.id !== elementID))} />} />
+            liked={liked}
+            setLiked={setLiked}
+            removeFromCart={(elementID) => setCart(cart.filter(el => el.id !== elementID))} />} 
+        />
+        <Route path="/cart/history" element={<History />}/>
 		</Routes>
 </div>
   );

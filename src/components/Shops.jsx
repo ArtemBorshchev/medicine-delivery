@@ -5,7 +5,7 @@ import medicineIcon from "../medicine_product_item.png";
 
 import "../styles/shops.css";
 
-const Shops = ({medicineData, shop, cart, setCart, clickedTextDecor}) => {
+const Shops = ({medicineData, shop, cart, setCart, clickedTextDecor, liked, setLiked}) => {
 
   return (
     <div className="shops-container">
@@ -26,6 +26,22 @@ const Shops = ({medicineData, shop, cart, setCart, clickedTextDecor}) => {
       </div>
       <div className="right-block">
       {
+        liked?.map((likedAddedProducts) => 
+          <ProductCard 
+          key={likedAddedProducts.id}
+          id={likedAddedProducts.id}
+          name={likedAddedProducts.name}
+          image={medicineIcon}
+          price={likedAddedProducts.price}
+          available={true}
+          setCart={setCart}
+          cart={cart}
+          liked={liked}
+          setLiked={setLiked}
+          />
+        )
+      }
+      {
       medicineData.filter((elName) => elName.name === shop).map((oneShop) => 
         oneShop.medications.map((products) => (
           <ProductCard 
@@ -38,6 +54,8 @@ const Shops = ({medicineData, shop, cart, setCart, clickedTextDecor}) => {
             available={true}
             setCart={setCart}
             cart={cart}
+            liked={liked}
+            setLiked={setLiked}
           />
         ))
       )
