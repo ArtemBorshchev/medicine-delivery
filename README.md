@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Medicine Delivery
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Medicine Delivery - это веб-приложение для заказа и доставки медицинских препаратов.
 
-## Available Scripts
+## Описание
 
-In the project directory, you can run:
+Это проект, разработанный для обеспечения пользователей медицинскими препаратами с помощью онлайн-заказов и доставки. Приложение позволяет пользователям просматривать каталог продуктов, добавлять их в корзину, оформлять заказы и отслеживать статус доставки.
 
-### `npm start`
+В этом проекте для симуляции базы данных используется JSON файл. Файл `medicine.json` содержит фиктивные данные, которые моделируют базу данных для приложения. Этот JSON файл содержит информацию о магазинах и их продуктах.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Начало работы
 
-### `npm test`
+Эти инструкции помогут вам запустить проект на локальной машине для разработки и тестирования.
+в директории medical-delivery/server перейти в server  и ввести команду node server.js для запуска локального сервера
+в директории medical-delivery ввести команду npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Требования
 
-### `npm run build`
+Для запуска проекта вам понадобятся Node.js и npm.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+__________ __________ __________ __________ __________ __________ __________
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Medicine Delivery
+Medicine Delivery is a web application for ordering and delivering medical supplies.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Description
+This project is designed to provide users with medical supplies through online orders and delivery. The application allows users to browse the product catalog, add items to their cart, place orders, and track delivery status.
 
-### `npm run eject`
+In this project, a JSON file is used to simulate the database. The medicine.json file contains dummy data that simulates the database for the application. This JSON file includes information about stores and their products.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Getting Started
+These instructions will help you get the project up and running on your local machine for development and testing.
+In the medical-delivery/server directory, navigate to the server and enter the command node server.js to start the local server.
+In the medical-delivery directory, enter the command npm start to start the application.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Prerequisites
+To run the project, you will need Node.js and npm.
