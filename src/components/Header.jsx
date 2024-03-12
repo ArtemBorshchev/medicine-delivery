@@ -32,6 +32,12 @@ const Header = () => {
           <Link to="/cart">Cart</Link>
         </h3>
       </div>
+      <div className="header-title-box">
+        <h3 onClick={() => clickedTextDecor("History")}
+            style={{ textDecoration: underLine === "History" ? 'underline solid #29a745' : 'none' }}>
+           <Link to="/history">History</Link>
+        </h3>
+      </div>
     </header>
   );
 };

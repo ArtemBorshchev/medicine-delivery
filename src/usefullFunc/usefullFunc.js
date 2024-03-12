@@ -22,3 +22,4 @@ export const decorateFocusedLeavedElement = (e, setOpacitiColor, clickedIcon) =>
     }
   }
 };
+

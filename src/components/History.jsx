@@ -47,6 +47,7 @@ const History = () => {
           <HistoryCard
             key={product.id}
             id={product.id}
+            count={product.count}
             name={product.name}
             image={product.image}
             price={product.price}

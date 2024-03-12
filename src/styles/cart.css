@@ -1,11 +1,17 @@
 .cart-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-container {
   display: flex;
   justify-content: space-between;
+  width: 95%;
+  border: 3px rgba(41, 167, 68, 0.3) solid;
+  border-radius: 10px;
+  box-sizing: border-box;
 }
 
 .cart-form-left {
@@ -15,6 +21,8 @@
   box-sizing: border-box;
   width: 50%;
   padding: 20px;
+  max-height: 60vh;
+
 }
 
 .cart-items-right {
@@ -23,8 +31,11 @@
   justify-content: flex-start;
   border: 3px rgba(41, 167, 68, 0.3) solid;
   border-radius: 10px;
+  box-sizing: border-box;
   margin: 10px 20px 20px 0px;
   width: 50%;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .form-group {
@@ -32,7 +43,7 @@
 }
 
 .submit-button {
-  width: 100px;
+  width: 150px;
   display: flex;
   justify-content: center;
   background-color: #29a745;
@@ -70,7 +81,7 @@
 }
 
 .cart-form-left textarea {
-  height: 100px;
+  height: 60px;
 }
 
 .cart-form-left input[type="text"]:focus,

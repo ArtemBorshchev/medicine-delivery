@@ -8,7 +8,7 @@ import History from "./components/History";
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [shop, setShop] = useState("shop");
+  const [shop, setShop] = useState();
   const [liked, setLiked] = useState([]);
   const [medicineData, setMedicineData] = useState([]);
 	const [isNavigated, setIsNavigated] = useState(false);
@@ -20,24 +20,20 @@ function App() {
 
   useEffect(() => {
 		if (!isNavigated) {
-      console.log(isNavigated)
 			navigate('/shop');
 			setIsNavigated(true);
 		}
     const fetchData = async () => {
       try {
         const response = await fetch('http://localhost:3001/medicine');
-				// console.log(response)
         const data = await response.json();
         setMedicineData(data);
-				// console.log(data)
       } catch (error) {
         console.error('Ошибка загрузки данных:', error);
       }
     };
     fetchData();
     if (cart && cart.length === 0) {
-      console.log("не карт", cart )
       const savedDataCart = localStorage.getItem('cart');
       setCart(JSON.parse(savedDataCart));
       const savedDataFavorit = localStorage.getItem('liked');
@@ -81,7 +77,7 @@ function App() {
             setLiked={setLiked}
             removeFromCart={(elementID) => setCart(cart.filter(el => el.id !== elementID))} />} 
         />
-        <Route path="/cart/history" element={<History />}/>
+        <Route path="/history" element={<History />}/>
 		</Routes>
 </div>
   );

@@ -11,16 +11,15 @@ const ProductCard = ({ id, name, image, price, available, cart, setCart, dataAdd
   useEffect(() => {
     const foundInCart = cart?.some(item => item.id === id);
     setIsInCart(foundInCart);
-    console.log("cart from USE EFF ProdCart: ", cart)
   }, []);
 
   const addToCart = () => {
     const newProduct = {
       id: id,
+      count: 1,
       name: name,
       image: image,
       price: price,
-      available: true,
       addedToCart: new Date(),
     };
   

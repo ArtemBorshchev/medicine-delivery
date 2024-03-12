@@ -1,6 +1,6 @@
 const express = require('express');
 const fs = require('fs');
-const bodyParser = require('body-parser'); // Для разбора JSON из запроса
+const bodyParser = require('body-parser');
 const app = express();
 const PORT = 3001;
 
@@ -8,18 +8,24 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
   next();
 });
 
-// Разбор JSON из тела запроса
+
 app.use(bodyParser.json());
 
-// Маршрут для создания файла JSON и записи в него данных
 app.post('/api/createFile/:phoneNumber', (req, res) => {
   const phoneNumber = req.params.phoneNumber;
-  const fileContent = req.body; // Получаем данные из тела запроса
+  const fileContent = req.body;
 
-  const fileName = `${phoneNumber}.json`; // Создаем имя файла на основе номера телефона
+  const fileName = phoneNumber;
 
   fs.writeFile(`./server/${fileName}`, JSON.stringify(fileContent), (err) => {
     if (err) {

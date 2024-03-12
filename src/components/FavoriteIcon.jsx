@@ -3,13 +3,13 @@ import { decorateClickedElement, decorateFocusedLeavedElement } from "../usefull
 
 import { ReactComponent as HeartIcon } from "../iconFavorit.svg";
 
-const FavoriteIcon = ({ opacitiColor, setOpacitiColor, clickedIcon, setClickedIcon, setLiked, id, name, image, price, added, liked, isLiked, setIsLiked }) => {
+const FavoriteIcon = ({ opacitiColor, setOpacitiColor, clickedIcon, setClickedIcon, setLiked, id, name, image, price, added, liked }) => {
   const handleFavoriteClick = () => {
     if (liked && liked.length > 0) {
       const foundInLiked = liked.some(item => item.id === id);
 
       if (!foundInLiked) {
-        const newLikedItem = { id, name, image, price, added, isLiked: true }; // Установите isLiked в true
+        const newLikedItem = { id, name, image, price, added, isLiked: true };
         setLiked(prevLiked => {
           const updatedLiked = [...prevLiked, newLikedItem];
           localStorage.setItem('liked', JSON.stringify(updatedLiked));
@@ -29,7 +29,6 @@ const FavoriteIcon = ({ opacitiColor, setOpacitiColor, clickedIcon, setClickedIc
     }
 
     decorateClickedElement(setOpacitiColor, setClickedIcon, clickedIcon);
-    console.log("liked", liked);
   };
 
   return (
